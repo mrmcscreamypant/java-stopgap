@@ -1,18 +1,17 @@
 package dev.john.mfja;
 
+import dev.john.mfja.core.Greeter;
+import dev.john.mfja.core.IResponse;
 import dev.john.mfja.util.CLI;
 
 public class App {
 
     CLI cli = new CLI();
+    IResponse responder = new Greeter();
 
     public static void main(String[] args) {
         App workaround = new App();
         workaround.bootstrap(args);
-    }
-
-    private String greet(String name) {
-        return "Hello, " + name + "!";
     }
 
     private void bootstrap(String[] args) {
@@ -22,7 +21,9 @@ public class App {
 
         final String name = cli.prompt("What is your name");
 
-        cli.print(this.greet(name));
+        final String response = this.responder.transform(name);
+
+        cli.print(response);
     }
 
 }
