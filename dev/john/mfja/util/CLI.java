@@ -21,6 +21,6 @@ public class CLI implements IConsole {
         this.print(msg + ": ", false);
 
         final java.util.Scanner in = new java.util.Scanner(System.in);
-        return in.next();
+        return in.nextLine();
     }
 }
