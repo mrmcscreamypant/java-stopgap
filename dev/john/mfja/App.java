@@ -1,5 +1,6 @@
+package dev.john.mfja;
 
-import com.mfja.CLI;
+import dev.john.mfja.util.CLI;
 
 public class App {
 
@@ -11,7 +12,7 @@ public class App {
     }
 
     private String greet(String name) {
-        return "Hello, "+name+"!";
+        return "Hello, " + name + "!";
     }
 
     private void bootstrap(String[] args) {

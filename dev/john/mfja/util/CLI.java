@@ -1,4 +1,4 @@
-package com.mfja;
+package dev.john.mfja.util;
 
 public class CLI {
 
