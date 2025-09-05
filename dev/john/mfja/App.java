@@ -2,11 +2,12 @@ package dev.john.mfja;
 
 import dev.john.mfja.core.Greeter;
 import dev.john.mfja.core.IResponse;
+import dev.john.mfja.util.IConsole;
 import dev.john.mfja.util.CLI;
 
 public class App {
 
-    CLI cli = new CLI();
+    IConsole out = new CLI();
     IResponse responder = new Greeter();
 
     public static void main(String[] args) {
@@ -16,14 +17,14 @@ public class App {
 
     private void bootstrap(String[] args) {
         for (String arg : args) {
-            cli.print("Program got arg '" + arg + "'!");
+            out.print("Program got arg '" + arg + "'!");
         }
 
-        final String name = cli.prompt("What is your name");
+        final String name = out.prompt("What is your name");
 
         final String response = this.responder.transform(name);
 
-        cli.print(response);
+        out.print(response);
     }
 
 }

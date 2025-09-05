@@ -1,8 +1,9 @@
 package dev.john.mfja.util;
 
-public class CLI {
+public class CLI implements IConsole {
 
-    public final void print(String msg, boolean newline) {
+    @Override
+    public void print(String msg, Boolean newline) {
         if (newline) {
             System.out.println(msg);
         } else {
@@ -10,10 +11,12 @@ public class CLI {
         }
     }
 
-    public final void print(String msg) {
+    @Override
+    public void print(String msg) {
         this.print(msg, true);
     }
 
+    @Override
     public String prompt(String msg) {
         this.print(msg + ": ", false);
 
