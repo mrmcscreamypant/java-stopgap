@@ -1,6 +1,13 @@
 package dev.john.mfja.util;
 
+import java.util.Scanner;
+
 public class CLI implements IConsole {
+    private final Scanner scanner;
+
+    public CLI() {
+        this.scanner = new Scanner(System.in);
+    }
 
     @Override
     public void print(String msg, Boolean newline) {
@@ -20,7 +27,6 @@ public class CLI implements IConsole {
     public String prompt(String msg) {
         this.print(msg + ": ", false);
 
-        final java.util.Scanner in = new java.util.Scanner(System.in);
-        return in.nextLine();
+        return this.scanner.nextLine();
     }
 }
