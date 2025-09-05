@@ -3,6 +3,7 @@ package dev.john.mfja;
 import dev.john.mfja.core.Greeter;
 import dev.john.mfja.core.IResponse;
 import dev.john.mfja.core.Parter;
+import dev.john.mfja.core.SizeChecker;
 import dev.john.mfja.util.CLI;
 import dev.john.mfja.util.IConsole;
 
@@ -10,6 +11,7 @@ public class App {
 
     IConsole out = new CLI();
     IResponse responder = new Greeter();
+    SizeChecker checker = new SizeChecker(out);
 
     public static void main(String[] args) {
         App workaround = new App();
@@ -30,18 +32,7 @@ public class App {
         final String goodbye = new Parter().transform(name);
         out.print(goodbye);
 
-        int small = 0;
-        int last = 0;
-        while (true) {
-            small += 1;
-            if (small < last) {
-                break;
-            }
-            last = small;
-        }
-
-        out.print("Found int max size (" + String.valueOf(last) + " bits)");
-        out.print("(I'm not quite crazy enough to do doubles)");
+        checker.findLargestInt();
     }
 
 }
