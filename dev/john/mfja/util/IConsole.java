@@ -1,6 +1,6 @@
 package dev.john.mfja.util;
 
-public interface IConsole { 
+public interface IConsole {
 
     public void print(String msg, Boolean newline);
 

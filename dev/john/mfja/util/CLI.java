@@ -3,6 +3,7 @@ package dev.john.mfja.util;
 import java.util.Scanner;
 
 public class CLI implements IConsole {
+
     private final Scanner scanner;
 
     public CLI() {
