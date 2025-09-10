@@ -13,12 +13,12 @@ public class App {
     IResponse responder = new Greeter();
     SizeChecker checker = new SizeChecker(out);
 
-    public static void main(String[] args) {
+    public final static void main(String[] args) {
         App workaround = new App();
         workaround.bootstrap(args);
     }
 
-    private void bootstrap(String[] args) {
+    private final void bootstrap(String[] args) {
         for (String arg : args) {
             out.print("Program got arg '" + arg + "'!");
         }

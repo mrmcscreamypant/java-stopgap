@@ -5,12 +5,12 @@ import java.util.Scanner;
 public class CLI implements IConsole {
     private final Scanner scanner;
 
-    public CLI() {
+    public final CLI() {
         this.scanner = new Scanner(System.in);
     }
 
     @Override
-    public void print(String msg, Boolean newline) {
+    public final void print(String msg, Boolean newline) {
         if (newline) {
             System.out.println(msg);
         } else {
@@ -19,12 +19,12 @@ public class CLI implements IConsole {
     }
 
     @Override
-    public void print(String msg) {
+    public final void print(String msg) {
         this.print(msg, true);
     }
 
     @Override
-    public String prompt(String msg) {
+    public final String prompt(String msg) {
         this.print(msg + ": ", false);
 
         return this.scanner.nextLine();

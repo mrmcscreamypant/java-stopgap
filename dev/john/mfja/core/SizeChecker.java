@@ -9,7 +9,7 @@ public class SizeChecker {
         this.out = out;
     }
 
-    public void findLargestInt() {
+    public final void findLargestInt() {
         int small = 0;
         int last = 0;
         while (true) {
