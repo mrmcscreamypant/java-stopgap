@@ -3,6 +3,7 @@ package dev.john.mfja.util;
 import java.util.Scanner;
 
 public class CLI implements IConsole {
+
     private final Scanner scanner;
 
     public CLI() {
@@ -32,7 +33,7 @@ public class CLI implements IConsole {
 
     @Override
     public void clear() {
-        this.print("\033[H\033[2J");   
+        this.print("\033[H\033[2J", false);
         //System.out.flush();  
     }
 }
