@@ -5,15 +5,33 @@ import dev.john.mfja.core.IResponse;
 import dev.john.mfja.core.SizeChecker;
 import dev.john.mfja.util.CLI;
 import dev.john.mfja.util.IConsole;
+import dev.john.mfja.tasks.Task;
 
 public class App {
 
     IConsole out = new CLI();
-    IResponse responder = new Greeter();
-    SizeChecker checker = new SizeChecker(out);
 
-    private enum task {
-        SIZECHECKER(new SizeChecker(out))
+    private enum Tasks {
+        SIZECHECKER(SizeChecker.class);//,
+        //GREETER(Greeter.class);
+
+        private Task task;
+
+        private Tasks(Class thistask) {
+            try {
+                this.task = (Task) thistask.getConstructors()[0].newInstance(new CLI());
+            } catch (Exception e) {
+                e.printStackTrace(System.out);
+            }
+        }
+
+        public Task getTask() {
+            return task;
+        }
+
+        public Tasks[] getTasks() {
+            return this.values();
+        }
     }
 
     public static void main(String[] args) {
@@ -22,7 +40,9 @@ public class App {
     }
 
     private void bootstrap(String[] args) {
-        this.out.print(String.valueOf(foo.values()));
+        for (Tasks task : Tasks.values()) {
+            this.out.print(task.name());
+        }
     }
 
 }

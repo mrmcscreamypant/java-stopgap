@@ -1,15 +1,15 @@
 package dev.john.mfja.core;
 
+import dev.john.mfja.tasks.Task;
 import dev.john.mfja.util.IConsole;
 
-public class SizeChecker {
-    private final IConsole out;
-
+public class SizeChecker extends Task {
     public SizeChecker(IConsole out) {
-        this.out = out;
+        super(out);
     }
 
-    public void findLargestInt() {
+    @Override
+    public void run() {
         int small = 0;
         int last = 0;
         while (true) {
