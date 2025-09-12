@@ -1,7 +1,5 @@
 package dev.john.mfja;
 
-import dev.john.mfja.core.Greeter;
-import dev.john.mfja.core.IResponse;
 import dev.john.mfja.core.SizeChecker;
 import dev.john.mfja.util.CLI;
 import dev.john.mfja.util.IConsole;
@@ -28,10 +26,6 @@ public class App {
         public Task getTask() {
             return task;
         }
-
-        public Tasks[] getTasks() {
-            return this.values();
-        }
     }
 
     public static void main(String[] args) {
@@ -40,9 +34,20 @@ public class App {
     }
 
     private void bootstrap(String[] args) {
+        this.out.print("Valid tasks:");
         for (Tasks task : Tasks.values()) {
-            this.out.print(task.name());
+            this.out.print(" - " + task.name().toLowerCase());
         }
+        String requested = this.out.prompt("\nTask").toLowerCase();
+
+        for (Tasks task : Tasks.values()) {
+            if (task.name().toLowerCase().equals(requested)) {
+                task.task.run();
+                return;
+            }
+        }
+
+        this.out.print("Failed to find task with name '" + requested + "'");
     }
 
 }
