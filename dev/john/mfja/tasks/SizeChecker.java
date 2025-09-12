@@ -1,6 +1,5 @@
-package dev.john.mfja.core;
+package dev.john.mfja.tasks;
 
-import dev.john.mfja.tasks.Task;
 import dev.john.mfja.util.IConsole;
 
 public class SizeChecker extends Task {

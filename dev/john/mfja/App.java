@@ -1,17 +1,19 @@
 package dev.john.mfja;
 
-import dev.john.mfja.core.SizeChecker;
 import dev.john.mfja.util.CLI;
 import dev.john.mfja.util.IConsole;
 import dev.john.mfja.tasks.Task;
+
+import dev.john.mfja.tasks.SizeChecker;
+import dev.john.mfja.tasks.HelloWorld;
 
 public class App {
 
     IConsole out = new CLI();
 
     private enum Tasks {
-        SIZECHECKER(SizeChecker.class);//,
-        //GREETER(Greeter.class);
+        SIZECHECKER(SizeChecker.class),
+        HELLOWORLD(HelloWorld.class);
 
         private Task task;
 
@@ -38,7 +40,7 @@ public class App {
         for (Tasks task : Tasks.values()) {
             this.out.print(" - " + task.name().toLowerCase());
         }
-        String requested = this.out.prompt("\nTask").toLowerCase();
+        final String requested = this.out.prompt("\nTask").toLowerCase();
 
         for (Tasks task : Tasks.values()) {
             if (task.name().toLowerCase().equals(requested)) {
