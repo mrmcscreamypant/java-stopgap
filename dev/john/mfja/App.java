@@ -35,22 +35,36 @@ public class App {
         workaround.bootstrap(args);
     }
 
-    private void bootstrap(String[] args) {
+    private Boolean runTask(String name) {
+        for (Tasks task : Tasks.values()) {
+            if (task.name().toLowerCase().equals(name)) {
+                this.out.clear();
+                task.task.run();
+                return true;
+            }
+        }
+        return false;
+    }
+
+    private String requestTask() {
         this.out.print("Valid tasks:");
         for (Tasks task : Tasks.values()) {
             this.out.print(" - " + task.name().toLowerCase());
         }
         final String requested = this.out.prompt("\nTask").toLowerCase();
-
-        for (Tasks task : Tasks.values()) {
-            if (task.name().toLowerCase().equals(requested)) {
-                this.out.clear();
-                task.task.run();
-                return;
-            }
-        }
-
-        this.out.print("Failed to find task with name '" + requested + "'");
+        return requested;
     }
 
+    private void bootstrap(String[] args) {
+        String requested;
+        if (args.length == 0) {
+            requested = this.requestTask();
+        } else {
+            requested = args[0];
+        }
+
+        if (!this.runTask(requested)) {
+            this.out.print("Failed to find task with name '" + requested + "'");
+        }
+    }
 }
