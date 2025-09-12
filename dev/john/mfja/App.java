@@ -44,6 +44,7 @@ public class App {
 
         for (Tasks task : Tasks.values()) {
             if (task.name().toLowerCase().equals(requested)) {
+                this.out.clear();
                 task.task.run();
                 return;
             }

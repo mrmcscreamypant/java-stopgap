@@ -29,4 +29,10 @@ public class CLI implements IConsole {
 
         return this.scanner.nextLine();
     }
+
+    @Override
+    public void clear() {
+        this.print("\033[H\033[2J");   
+        //System.out.flush();  
+    }
 }

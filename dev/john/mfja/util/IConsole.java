@@ -7,4 +7,6 @@ public interface IConsole {
     public void print(String msg);
 
     public String prompt(String msg);
+
+    public void clear();
 }
