@@ -6,6 +6,8 @@ import dev.john.mfja.tasks.Task;
 
 import dev.john.mfja.tasks.SizeChecker;
 import dev.john.mfja.tasks.HelloWorld;
+import dev.john.mfja.tasks.LoopSpam;
+import java.lang.reflect.InvocationTargetException;
 
 public class App {
 
@@ -13,14 +15,15 @@ public class App {
 
     private enum Tasks {
         SIZECHECKER(SizeChecker.class),
-        HELLOWORLD(HelloWorld.class);
+        HELLOWORLD(HelloWorld.class),
+        LOOPSPAM(LoopSpam.class);
 
         private Task task;
 
         private Tasks(Class thistask) {
             try {
                 this.task = (Task) thistask.getConstructors()[0].newInstance(new CLI());
-            } catch (Exception e) {
+            } catch (IllegalAccessException | IllegalArgumentException | InstantiationException | SecurityException | InvocationTargetException e) {
                 e.printStackTrace(System.out);
             }
         }
