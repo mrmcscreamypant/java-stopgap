@@ -3,6 +3,7 @@ package dev.john.mfja.tasks;
 import dev.john.mfja.util.IConsole;
 
 public class SizeChecker extends Task {
+
     public SizeChecker(IConsole out) {
         super(out);
     }
