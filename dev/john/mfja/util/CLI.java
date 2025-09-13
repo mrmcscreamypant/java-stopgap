@@ -1,6 +1,7 @@
 package dev.john.mfja.util;
 
 import java.util.Scanner;
+import java.util.concurrent.TimeUnit;
 
 public class CLI implements IConsole {
 
@@ -35,5 +36,14 @@ public class CLI implements IConsole {
     public void clear() {
         this.print("\033[H\033[2J", false);
         //System.out.flush();  
+    }
+
+    @Override
+    public void sleep(int seconds) {
+        try {
+            TimeUnit.SECONDS.sleep(seconds);
+        } catch (InterruptedException e) {
+
+        }
     }
 }

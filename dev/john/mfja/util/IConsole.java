@@ -9,4 +9,6 @@ public interface IConsole {
     public String prompt(String msg);
 
     public void clear();
+
+    public void sleep(int seconds);
 }
