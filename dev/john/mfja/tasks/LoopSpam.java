@@ -110,6 +110,27 @@ class IntLength extends YetAnotherTask {
     }
 }
 
+@TaskAnnotation(exercise=6,name="Count Odd Digits")
+class OddLength extends YetAnotherTask {
+    private int wayMoreCompilcatedThanItShouldBe(int start) {
+        final String string = String.valueOf(start);
+        int index = 0; // please just let me use a for loop
+        int count = 0;
+        while (index < JMath.lengthOfInt(start)) { // Abstraction comes in handy
+            if (!JMath.isEven(Integer.parseInt(String.valueOf(string.charAt(index))))) { // Don't you love decorator patterns?
+                count ++;
+            }
+            index ++;
+        }
+        return count;
+    }
+
+    @Override
+    public void doSomething(int start) { //I present a hacky solution that somehow works
+        this.out.print(String.valueOf(this.wayMoreCompilcatedThanItShouldBe(start)));
+    }
+}
+
 public class LoopSpam extends Task {
 
         public LoopSpam(IConsole out) {
@@ -121,7 +142,8 @@ public class LoopSpam extends Task {
         SUMOFINTS(new SumOfInts()),
         SUMOFEVENS(new SumOfEvens()),
         COUNTINGMULTIPLES(new CountingMultiples()),
-        INTLENGTH(new IntLength());
+        INTLENGTH(new IntLength()),
+        ODDLENGTH(new OddLength());
 
         private YetAnotherTask task;
 
