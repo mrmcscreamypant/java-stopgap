@@ -20,8 +20,12 @@ public class AdventConsole {
         }
     }
 
-    public void system(String msg) {
-        final String colorized = Color.colorize(ColorTypes.SYSTEM.color, msg);
+    private void printColor(String msg, Color color) {
+        final String colorized = Color.colorize(color, msg);
         this.out.print(colorized);
+    }
+
+    public void system(String msg) {
+        this.printColor(msg, ColorTypes.SYSTEM.color);
     }
 }
