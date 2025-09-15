@@ -26,10 +26,21 @@ public class CLI implements IConsole {
     }
 
     @Override
-    public String prompt(String msg) {
-        this.print(msg + ": ", false);
+    public String prompt(String msg, boolean formatted) {
+        String formatting = ": ";
+
+        if (!formatted) {
+            formatting = "";
+        }
+
+        this.print(msg + formatting, false);
 
         return this.scanner.nextLine();
+    }
+
+    @Override
+    public String prompt(String msg) {
+        return this.prompt(msg, true);
     }
 
     @Override

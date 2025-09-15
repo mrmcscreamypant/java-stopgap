@@ -7,6 +7,8 @@ import dev.john.mfja.tasks.Task;
 import dev.john.mfja.tasks.SizeChecker;
 import dev.john.mfja.tasks.HelloWorld;
 import dev.john.mfja.tasks.LoopSpam;
+import dev.john.mfja.tasks.Advent;
+
 import java.lang.reflect.InvocationTargetException;
 
 public class App {
@@ -16,7 +18,8 @@ public class App {
     private enum Tasks {
         SIZECHECKER(SizeChecker.class),
         HELLOWORLD(HelloWorld.class),
-        LOOPSPAM(LoopSpam.class);
+        LOOPSPAM(LoopSpam.class),
+        ADVENT(Advent.class);
 
         private Task task;
 

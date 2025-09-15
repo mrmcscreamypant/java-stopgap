@@ -8,6 +8,8 @@ public interface IConsole {
 
     public String prompt(String msg);
 
+    public String prompt(String msg, boolean formated);
+
     public void clear();
 
     public void sleep(int seconds);
