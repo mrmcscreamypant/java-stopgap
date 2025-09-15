@@ -2,7 +2,6 @@ package dev.john.mfja.tasks;
 
 import dev.john.mfja.util.IConsole;
 import dev.john.mfja.util.JMath;
-import java.util.*;
 import java.lang.annotation.*;
 
 @Retention(RetentionPolicy.RUNTIME)
