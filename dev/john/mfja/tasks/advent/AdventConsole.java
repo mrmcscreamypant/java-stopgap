@@ -10,8 +10,18 @@ public class AdventConsole {
         this.out = out;
     }
 
+    private enum ColorTypes {
+        SYSTEM(Color.COLOR_YELLOW);
+
+        private final Color color;
+
+        private ColorTypes(Color color) {
+            this.color = color;
+        }
+    }
+
     public void system(String msg) {
-        final String colorized = Color.colorize(COLOR_RED, msg);
+        final String colorized = Color.colorize(ColorTypes.SYSTEM.color, msg);
         this.out.print(colorized);
     }
 }

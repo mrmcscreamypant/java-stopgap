@@ -30,10 +30,6 @@ public class App {
                 e.printStackTrace(System.out);
             }
         }
-
-        public Task getTask() {
-            return task;
-        }
     }
 
     public static void main(String[] args) {
