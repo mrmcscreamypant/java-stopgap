@@ -131,10 +131,30 @@ class OddLength extends YetAnotherTask {
     }
 }
 
+@TaskAnnotation(exercise=-1, name="Mystery Loop")
+class MysteryLoop extends YetAnotherTask {
+    private int mysteryLoop(int input) {
+        int number = input; // This really does not do much and I can just change 'input'
+        while (number<20) {
+            if(number%2 == 0) {
+                number=number/2+10;
+            } else {
+                number=number*3-5;
+            }
+        }
+        return number;
+    }
+
+    @Override
+    public void doSomething(int start) {
+        this.out.print(String.valueOf(this.mysteryLoop(start)));
+    }
+}
+
 public class LoopSpam extends Task {
 
-        public LoopSpam(IConsole out) {
-            super(out);
+    public LoopSpam(IConsole out) {
+        super(out);
     }
 
     private enum EvenMoreTasks {
@@ -143,9 +163,10 @@ public class LoopSpam extends Task {
         SUMOFEVENS(new SumOfEvens()),
         COUNTINGMULTIPLES(new CountingMultiples()),
         INTLENGTH(new IntLength()),
-        ODDLENGTH(new OddLength());
+        ODDLENGTH(new OddLength()),
+        MYSTERYLOOP(new MysteryLoop());
 
-        private YetAnotherTask task;
+        private final YetAnotherTask task;
 
         private EvenMoreTasks(YetAnotherTask thistask) {
             this.task = thistask;
