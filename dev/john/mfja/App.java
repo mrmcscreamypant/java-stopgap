@@ -13,7 +13,7 @@ import java.lang.reflect.InvocationTargetException;
 
 public class App {
 
-    IConsole out = new CLI();
+    static IConsole out = new CLI();
 
     private enum Tasks {
         SIZECHECKER(SizeChecker.class),
@@ -25,7 +25,7 @@ public class App {
 
         private Tasks(Class thistask) {
             try {
-                this.task = (Task) thistask.getConstructors()[0].newInstance(new CLI());
+                this.task = (Task) thistask.getConstructors()[0].newInstance(out);
             } catch (IllegalAccessException | IllegalArgumentException | InstantiationException | SecurityException | InvocationTargetException e) {
                 e.printStackTrace(System.out);
             }

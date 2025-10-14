@@ -4,14 +4,16 @@ import dev.john.mfja.util.IConsole;
 import color.Color;
 
 public class AdventConsole {
-    private IConsole out;
+
+    private final IConsole out;
 
     public AdventConsole(IConsole out) {
         this.out = out;
     }
 
     private enum ColorTypes {
-        SYSTEM(Color.COLOR_YELLOW);
+        SYSTEM(Color.COLOR_YELLOW),
+        WORLD(Color.COLOR_WHITE);
 
         private final Color color;
 
@@ -20,12 +22,16 @@ public class AdventConsole {
         }
     }
 
-    private void printColor(String msg, Color color) {
+    public void printColor(String msg, Color color) {
         final String colorized = Color.colorize(color, msg);
         this.out.print(colorized);
     }
 
     public void system(String msg) {
         this.printColor(msg, ColorTypes.SYSTEM.color);
+    }
+
+    public void world(String msg) {
+        this.printColor(msg, ColorTypes.WORLD.color);
     }
 }
