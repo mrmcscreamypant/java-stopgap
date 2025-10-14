@@ -11,7 +11,7 @@ import dev.john.mfja.tasks.advent.commands.*;
 public class Advent extends Task {
 
     private final String intro = "* ADVENT *\nA text adventure game.";
-    public static Object console = null;
+    public static AdventConsole console;
 
     private final String[] tmp_args = {"20", "40"};
 

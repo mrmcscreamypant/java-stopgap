@@ -8,6 +8,7 @@ import dev.john.mfja.tasks.SizeChecker;
 import dev.john.mfja.tasks.HelloWorld;
 import dev.john.mfja.tasks.LoopSpam;
 import dev.john.mfja.tasks.Advent;
+import dev.john.mfja.tasks.TriangleTask;
 
 import java.lang.reflect.InvocationTargetException;
 
@@ -19,7 +20,8 @@ public class App {
         SIZECHECKER(SizeChecker.class),
         HELLOWORLD(HelloWorld.class),
         LOOPSPAM(LoopSpam.class),
-        ADVENT(Advent.class);
+        ADVENT(Advent.class),
+        TRIANGLE(TriangleTask.class);
 
         private Task task;
 
@@ -40,7 +42,7 @@ public class App {
     private Boolean runTask(String name) {
         for (Tasks task : Tasks.values()) {
             if (task.name().toLowerCase().equals(name)) {
-                this.out.clear();
+                App.out.clear();
                 task.task.run();
                 return true;
             }
@@ -49,11 +51,11 @@ public class App {
     }
 
     private String requestTask() {
-        this.out.print("Valid tasks:");
+        App.out.print("Valid tasks:");
         for (Tasks task : Tasks.values()) {
-            this.out.print(" - " + task.name().toLowerCase());
+            App.out.print(" - " + task.name().toLowerCase());
         }
-        final String requested = this.out.prompt("\nTask").toLowerCase();
+        final String requested = App.out.prompt("\nTask").toLowerCase();
         return requested;
     }
 
@@ -66,7 +68,7 @@ public class App {
         }
 
         if (!this.runTask(requested)) {
-            this.out.print("Failed to find task with name '" + requested + "'");
+            App.out.print("Failed to find task with name '" + requested + "'");
         }
     }
 }
