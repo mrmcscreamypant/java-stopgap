@@ -8,6 +8,7 @@ import dev.john.mfja.tasks.SizeChecker;
 import dev.john.mfja.tasks.HelloWorld;
 import dev.john.mfja.tasks.LoopSpam;
 import dev.john.mfja.tasks.Advent;
+import dev.john.mfja.tasks.XYPairTask;
 import dev.john.mfja.tasks.TriangleTask;
 
 import java.lang.reflect.InvocationTargetException;
@@ -21,6 +22,7 @@ public class App {
         HELLOWORLD(HelloWorld.class),
         LOOPSPAM(LoopSpam.class),
         ADVENT(Advent.class),
+        XYPAIR(XYPairTask.class),
         TRIANGLE(TriangleTask.class);
 
         private Task task;

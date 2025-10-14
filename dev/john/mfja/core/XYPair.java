@@ -62,6 +62,16 @@ public class XYPair {
     }
 
     public double dist(XYPair other) {
-        return Math.sqrt(Math.pow(this.x + other.x, 2) + Math.pow(this.y + other.y, 2));
+        return Math.sqrt(Math.pow(this.x - other.x, 2) + Math.pow(this.y - other.y, 2));
+    }
+
+    public double slope(XYPair other) {
+        XYPair badly_named_normalized = this.duplicate().sub(other);
+        return -badly_named_normalized.y/badly_named_normalized.x;
+    }
+
+    public String equation(XYPair other) {
+        double m = this.y-(other.slope(this)*this.x);
+        return "y = "+other.slope(this)+"x + "+m;
     }
 }
