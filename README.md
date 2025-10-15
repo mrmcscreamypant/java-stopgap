@@ -3,4 +3,4 @@ please check the `dev/john/mfja/util/JMath.java` and the `dev/john/mfja/tasks/Lo
 
 If you do figure out how to run this, just call the `loopspam` task.
 
-This *may* work on MacOS with java installed, but has only been tested in debian
+This *may* work on MacOS with java installed, but has only been tested in (arm64) debian
